@@ -2,22 +2,19 @@
 # joaiacillo .dotfiles install - run this script to configure the env
 
 throw() {
-	echo "install.sh: error: " $@
+	echo "$(basename $0): error: " $@ >&2
 	exit 1
 }
 
-USER_DIR="$1"
+USER_DIR="${HOME}"
 
-test -z "$USER_DIR" && throw "user directory not provided. aborting"
-test ! -d "$USER_DIR" && throw "unexistent user directory"
+[ -z "${USER_DIR}" ] && throw "empty HOME var"
+[ ! -d "$USER_DIR" ] && throw "unexistent user directory"
 
-## Steps
-# 1. Copy config/* into $USER_DIR/.config/
-# 2. Copy local/* into $USER_DIR/.local/
-# 3. Copy wallpapers/* into $USER_DIR/Pictures
-
+[ ! -d "$USER_DIR/.local/share/.config" ] && mkdir "$USER_DIR/.local/share/.config"
 cp -r config/* $USER_DIR/.config/ &&
-cp -r local/* $USER_DIR/.local/ &&
-cp -r wallpapers/* $USER_DIR/Pictures/ &&
+[ ! -d "$USER_DIR/.local/share/fonts" ] && mkdir "$USER_DIR/.local/share/fonts"
+cp -r fonts/* $USER_DIR/.local/share/fonts
 
-echo Done.
+echo Done installing the configuration files.
+echo Please read the README for further manual configuration.
