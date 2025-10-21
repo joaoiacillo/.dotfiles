@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+ln -srf fonts ~/.local/share/
+ln -srf wallpaper.jpg ~/Pictures/wallpaper.jpg
+ln -srf kitty ~/.config/
+rm -rf ~/.config/hypr
+ln -srf hypr ~/.config/
+
+fc-cache -fr
+
+echo 'Done :)'
