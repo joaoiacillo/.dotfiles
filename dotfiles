@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+ln -sr zsh ~/.zshrc
+ln -sr zsh ~/.zsh
 ln -srf fonts ~/.local/share/
 ln -srf wallpaper.jpg ~/Pictures/wallpaper.jpg
 ln -srf kitty ~/.config/
