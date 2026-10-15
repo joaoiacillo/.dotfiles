@@ -1,5 +1,0 @@
-no-cosmetic-filtering: * true
-no-large-media: * true
-no-remote-fonts: * true
-no-scripting: * true
-* * * block
